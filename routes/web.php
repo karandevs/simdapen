@@ -24,4 +24,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware(['auth:sanctum', 'verified'])->resource('pangkat-golongan', PktGolController::class);
+Route::middleware(['auth', 'verified'])->resource('pangkat-golongan', PktGolController::class);

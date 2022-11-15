@@ -6,7 +6,7 @@
 <head>
 
     <!-- BEGIN: Laravel-->
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'SIMDAPEN') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- END: Laravel-->
 

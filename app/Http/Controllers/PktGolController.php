@@ -15,7 +15,7 @@ class PktGolController extends Controller
     public function index()
     {
         $data = PktGol::all();
-        return $data;
+        return view('menu.pktgol', compact('data'));
     }
 
     /**
