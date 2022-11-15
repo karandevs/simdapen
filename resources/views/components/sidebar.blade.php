@@ -1,3 +1,4 @@
+<!-- BEGIN: Sidebar -->
 <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
     <div class="navbar-header mt-1 mb-3">
         <ul class="nav navbar-nav flex-row">
@@ -26,3 +27,4 @@
         </ul>
     </div>
 </div>
+<!-- END: Sidebar -->
