@@ -6,7 +6,7 @@
 <head>
 
     <!-- BEGIN: Laravel-->
-    <title>{{ config('app.name', 'SIMDAPEN') }}</title>
+    <title>SIMDAPEN</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- END: Laravel-->
 
@@ -37,6 +37,8 @@
     <link rel="stylesheet" type="text/css" href="../vuexy/app-assets/css/themes/dark-layout.css">
     <link rel="stylesheet" type="text/css" href="../vuexy/app-assets/css/themes/bordered-layout.css">
     <link rel="stylesheet" type="text/css" href="../vuexy/app-assets/css/themes/semi-dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="../vuexy/app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -73,7 +75,7 @@
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper container-xxl p-0">
-            @yield('content');
+            @yield('content')
     </div>
     <!-- END: Content-->
 
@@ -104,6 +106,8 @@
 
     <!-- BEGIN: Page JS-->
     <script src="../vuexy/app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+
     <!-- END: Page JS-->
 
     <script>

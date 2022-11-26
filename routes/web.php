@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PktGolController;
+use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\PegawaiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 
 route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });
 
 Auth::routes();
@@ -25,3 +27,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'verified'])->resource('pangkat-golongan', PktGolController::class);
+Route::middleware(['auth', 'verified'])->resource('jabatan', JabatanController::class);
+Route::middleware(['auth', 'verified'])->resource('pegawai', PegawaiController::class);
+Route::post('pegawai/destroy/{id}', 'PegawaiController@destroy');

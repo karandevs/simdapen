@@ -14,7 +14,7 @@ class PktGolController extends Controller
      */
     public function index()
     {
-        $data = PktGol::all();
+        $data = PktGol::paginate(5);
         return view('menu.pktgol', compact('data'));
     }
 
@@ -36,7 +36,21 @@ class PktGolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'pangkat' => ['required', 'string', 'max:32', 'unique:pkt_gols'],
+            'golongan' => ['required', 'string', 'max:32', 'unique:pkt_gols']
+        ]);
+
+        $pktgol = PktGol::create([
+            'pangkat' => $request['pangkat'],
+            'golongan' => $request['golongan']
+        ]);
+
+        if ($pktgol) {
+            return redirect()->back()->with('success','Data berhasil ditambah!');
+        } else {
+            return redirect()->back()->withErrors($request);
+        }
     }
 
     /**
@@ -70,7 +84,32 @@ class PktGolController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = [];
+        $pktgol = PktGol::findOrFail($id);
+
+        if ($request->pangkat != $pktgol->pangkat && $request->pangkat != "") {
+            $validator = $request->validate([
+                'pangkat' => ['string', 'max:32','unique:pkt_gols'],
+            ]);
+            $pktgol->update([
+                'pangkat' => $request->pangkat
+            ]);
+        }
+
+        if ($request->golongan != $pktgol->golongan && $request->golongan != "") {
+            $validator = $request->validate([
+                'golongan' => ['string', 'max:32','unique:pkt_gols'],
+            ]);
+            $pktgol->update([
+                'golongan' => $request->golongan
+            ]);
+        }
+
+        if ($pktgol) {
+            return redirect()->back()->with('success','Data berhasil diubah!');
+        } else {
+            return redirect()->back()->withErrors($request);
+        }
     }
 
     /**
@@ -81,6 +120,11 @@ class PktGolController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pktgol = PktGol::findOrFail($id);
+        $pktgol->delete();
+
+        if ($pktgol) {
+            return redirect()->back()->with('success','Data berhasil dihapus!');
+        }
     }
 }

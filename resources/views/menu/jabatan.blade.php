@@ -4,20 +4,9 @@
     <!-- Table head options start -->
     <div class="row" id="table-head">
         <div class="col-12">
-            @if (session('success'))
-                <div class="alert alert-success text-center p-3" role="alert">
-                    {{ session('success') }}
-                </div>
-            @endif
-
-            @if ($errors->any())
-                <div class="alert alert-danger text-center p-3" role="alert">
-                    {{ $errors->first() }}
-                </div>
-            @endif
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-text"> Data Pangkat dan Golongan </h2>
+                    <h2 class="card-text"> Data Jabatan </h2>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Tambah
                     </button>
@@ -31,25 +20,17 @@
                                         data-bs-dismiss="modal"aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="POST" action="{{ route('pangkat-golongan.store') }}">
+                                    <form method="POST" action="{{ route('jabatan.store') }}">
                                         @csrf
                                         <div class="row d-flex align-items-end">
                                             <div class="">
                                                 <div class="mb-1">
-                                                    <label class="form-label" for="pangkat">Pangkat</label>
+                                                    <label class="form-label" for="jabatan">Jabatan</label>
                                                     <input type="text"
-                                                        class="form-control @error('pangkat') is-invalid @enderror"
-                                                        name="pangkat" id="pangkat" aria-describedby="pangkat"
-                                                        value="{{ old('pangkat') }}" required autocomplete="pangkat"
-                                                        autofocus placeholder="Contoh: Pembina Tk. I" />
-                                                </div>
-                                                <div class="mb-1">
-                                                    <label class="form-label" for="golongan">Golongan</label>
-                                                    <input type="text"
-                                                        class="form-control @error('golongan') is-invalid @enderror"
-                                                        name="golongan" id="golongan" aria-describedby="golongan"
-                                                        value="{{ old('golongan') }}" required autocomplete="golongan"
-                                                        autofocus placeholder="Contoh: IV/b" />
+                                                        class="form-control @error('jabatan') is-invalid @enderror"
+                                                        name="jabatan" id="jabatan" aria-describedby="jabatan"
+                                                        value="{{ old('jabatan') }}" required autocomplete="jabatan"
+                                                        autofocus placeholder="Contoh: Kepala Kantor" />
                                                 </div>
                                             </div>
                                         </div>
@@ -69,8 +50,7 @@
                         <thead class="table-dark">
                             <tr>
                                 <th>No.</th>
-                                <th>Pangkat</th>
-                                <th>Golongan</th>
+                                <th>Jabatan</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -81,8 +61,7 @@
                             @foreach ($data as $key => $value)
                                 <tr>
                                     <td>{{ $data->firstItem() + $key }}</td>
-                                    <td>{{ $value->pangkat }}</td>
-                                    <td>{{ $value->golongan }}</td>
+                                    <td>{{ $value->jabatan }}</td>
                                     <td>
                                         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#modal{{ $value->id }}"> Ubah
@@ -92,40 +71,28 @@
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Ubah Pangkat dan
-                                                            Golongan</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">Ubah Jabatan</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close">
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
                                                         <form method="POST"
-                                                            action="{{ route('pangkat-golongan.update', $value->id) }}">
+                                                            action="{{ route('jabatan.update', $value->id) }}">
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="row d-flex align-items-end">
                                                                 <div class="">
                                                                     <div class="mb-1">
                                                                         <label class="form-label"
-                                                                            for="pangkat">Pangkat</label>
+                                                                            for="jabatan">Jabatan</label>
                                                                         <input type="text"
-                                                                            class="form-control @error('pangkat') is-invalid @enderror"
-                                                                            name="pangkat" id="pangkat"
-                                                                            aria-describedby="pangkat"
-                                                                            value="{{ $value->pangkat }}"
-                                                                            autocomplete="pangkat" autofocus required
-                                                                            placeholder="{{ $value->pangkat }}" />
-                                                                    </div>
-                                                                    <div class="mb-1">
-                                                                        <label class="form-label"
-                                                                            for="golongan">Golongan</label>
-                                                                        <input type="text"
-                                                                            class="form-control @error('golongan') is-invalid @enderror"
-                                                                            name="golongan" id="golongan"
-                                                                            aria-describedby="golongan"
-                                                                            value="{{ $value->golongan }}"
-                                                                            autocomplete="golongan" autofocus required
-                                                                            placeholder="{{ $value->golongan }}" />
+                                                                            class="form-control @error('jabatan') is-invalid @enderror"
+                                                                            name="jabatan" id="jabatan"
+                                                                            aria-describedby="jabatan"
+                                                                            value="{{ old('jabatan') }}"
+                                                                            autocomplete="jabatan" autofocus required
+                                                                            placeholder="{{ $value->jabatan }}" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -134,7 +101,7 @@
                                                                     class="btn btn-primary">Simpan</button>
                                                         </form>
                                                         <form onsubmit="return confirm('Apakah Anda yakin?');"
-                                                            action="{{ route('pangkat-golongan.destroy', $value->id) }}"
+                                                            action="{{ route('jabatan.destroy', $value->id) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
@@ -157,7 +124,8 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        {{ $data->links() }}
-        <!-- Table head options end -->
-    @endsection
+    {{ $data->links() }}
+    <!-- Table head options end -->
+@endsection
