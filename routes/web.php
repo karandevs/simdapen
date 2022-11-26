@@ -1,9 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PktGolController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\PegawaiController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PensiunController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +31,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth', 'verified'])->resource('pangkat-golongan', PktGolController::class);
 Route::middleware(['auth', 'verified'])->resource('jabatan', JabatanController::class);
 Route::middleware(['auth', 'verified'])->resource('pegawai', PegawaiController::class);
+Route::middleware(['auth', 'verified'])->resource('pensiun', PensiunController::class);
 Route::post('pegawai/destroy/{id}', 'PegawaiController@destroy');

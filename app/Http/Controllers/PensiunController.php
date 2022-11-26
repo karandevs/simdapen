@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pegawai;
 use Illuminate\Http\Request;
 
 class PensiunController extends Controller
@@ -13,7 +14,8 @@ class PensiunController extends Controller
      */
     public function index()
     {
-        //
+        $pegawai = Pegawai::all();
+        return view('menu.pensiun', compact('pegawai'));
     }
 
     /**
