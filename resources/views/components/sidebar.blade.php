@@ -41,7 +41,7 @@
                         data-feather="database"></i><span class="menu-title text-truncate" data-i18n="Email">Data
                         Pegawai</span></a>
             </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="app-email.html"><i
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('pensiun.index') }}"><i
                         data-feather="layers"></i><span class="menu-title text-truncate" data-i18n="Email">Data
                         Pensiun</span></a>
             </li>
