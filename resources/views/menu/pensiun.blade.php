@@ -30,20 +30,34 @@
                 @foreach ($pegawai as $key => $value)
                     @php
                         $awal = new DateTime($value->tgl_lahir);
+                        $awalstr = $awal->format('Y-m-d');
+
                         $masa = $awal->add(new DateInterval('P58Y'));
+
                         $akhir = new DateTime(); // Waktu sekarang
+                        $akhirstr = $akhir->format('Y-m-d');
+
                         $diff = $masa->diff($akhir);
+                        //$diffstr = $diff->format('Y-m-d');
+
+                        //date_sub($awal, date_interval_create_from_date_string("1 months"));
+
+
+                        //$test = (int)date_format($awal, "d");
+                        $diff2 = date_diff($akhir,$awal);
+                        $tesst = $diff2->format("%R%a")
+
                     @endphp
-                    @if ($diff->y == 0 && $diff->m <= 4)
+                    @if ($diff->y == 0 && $diff->m <= 4 && (int)$tesst > 0)
                         <tr>
                             <th scope="row">
-                                {{ $i }}
+                                {{ $diff2->format("%R%a") }}
                             </th>
                             <td>{{ $value->nip }}</td>
                             <td>{{ $value->nama }}</td>
                             <td>
                                 @php
-                                    echo $diff->m . ' bulan ' . $diff->d . ' hari';
+                                    echo $diff->y . ' tahun ' . $diff->m . ' bulan ' . $diff->d . ' hari';
                                 @endphp
                             </td>
                             <td>

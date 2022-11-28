@@ -9,6 +9,8 @@
 
     <title>SIMDAPEN</title>
 
+    <link rel="shortcut icon" type="image/x-icon" href="../img/Logobpn.png">
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 

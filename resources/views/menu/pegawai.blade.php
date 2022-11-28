@@ -116,7 +116,7 @@
                                 $i++;
                             ?>
                             <tr>
-                                <th scope="row">{{ $data->firstItem() + $key }}</th>
+                                <td scope="row">{{ $data->firstItem() + $key }}</td>
                                 <td>{{ $value->nama }}</td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal"

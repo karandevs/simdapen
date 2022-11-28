@@ -151,9 +151,9 @@ class PensiunController extends Controller
             ]);
         }
 
-        if (boolval($request->ppk2thnterakhir) != $pegawai->berkas_ppk2thnterakhir) {
+        if (boolval($request->berkas_ppk2thnterakhir) != $pegawai->berkas_ppk2thnterakhir) {
             $pegawai->update([
-                'berkas_ppk2thnterakhir' => boolval($request->ppk2thnterakhir)
+                'berkas_ppk2thnterakhir' => boolval($request->berkas_ppk2thnterakhir)
             ]);
         }
 
@@ -164,7 +164,7 @@ class PensiunController extends Controller
         }
 
         if ($pegawai) {
-            return redirect()->back()->with('success', 'Data berhasil diubah!');
+            return redirect()->back()->with('success', 'Berkas berhasil diperbaharui!');
         } else {
             return redirect()->back()->withErrors($request);
         }
