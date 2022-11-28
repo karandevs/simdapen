@@ -61,7 +61,7 @@
                                 @endphp
                             </td>
                             <td>
-                                <button class="btn btn-sm btn-danger">Cetak</button>
+                                <a href="{{ route('cetakSurat', $value->id) }}" class="btn btn-sm btn-danger">Cetak</a>
                                 <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#listModal{{ $i }}">Berkas</button>
                                 <form action="{{ route('pensiun.update', $value->id) }}" method="POST">
@@ -474,7 +474,7 @@
                                 @endphp
                             </td>
                             <td>
-                                <button class="btn btn-sm btn-danger">Cetak</button>
+                                <a href="{{ route('cetakSurat', $value->id) }}" class="btn btn-sm btn-danger">Cetak</a>
                                 <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#listModal{{ $i }}">Berkas</button>
                                 <form action="{{ route('pensiun.update', $value->id) }}" method="POST">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Pegawai;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PktGolController;
@@ -33,3 +34,9 @@ Route::middleware(['auth', 'verified'])->resource('jabatan', JabatanController::
 Route::middleware(['auth', 'verified'])->resource('pegawai', PegawaiController::class);
 Route::middleware(['auth', 'verified'])->resource('pensiun', PensiunController::class);
 Route::post('pegawai/destroy/{id}', 'PegawaiController@destroy');
+
+# Print guys
+Route::get('pensiun/print/{id}', function ($id) {
+    $pegawai = Pegawai::with('jabatan','pktgol')->findOrFail($id);
+    return view('layouts.papers.legal', compact('pegawai'));
+})->name('cetakSurat')->middleware('auth');
