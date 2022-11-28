@@ -73,143 +73,98 @@ class PensiunController extends Controller
         $validator = [];
         $pegawai = Pegawai::findOrFail($id);
 
-        if ($request->berkas_skcpns != $pegawai->berkas_skcpns && $request->berkas_skcpns != "") {
-            $validator = $request->validate([
-                'berkas_skcpns' => ['tinyint', 'max:1'],
-            ]);
+        if (boolval($request->berkas_skcpns) != $pegawai->berkas_skcpns) {
             $pegawai->update([
-                'berkas_skcpns' => $request->berkas_skcpns
+                'berkas_skcpns' => boolval($request->berkas_skcpns)
             ]);
         }
 
-        if ($request->berkas_skpns != $pegawai->berkas_skpns && $request->berkas_skpns != "") {
-            $validator = $request->validate([
-                'berkas_skpns' => ['tinyint', 'max:1'],
-            ]);
+        if (boolval($request->berkas_skpns) != $pegawai->berkas_skpns) {
             $pegawai->update([
-                'berkas_skpns' => $request->berkas_skpns
+                'berkas_skpns' => boolval($request->berkas_skpns)
             ]);
         }
 
-        if ($request->berkas_skpktterakhir != $pegawai->berkas_skpktterakhir && $request->berkas_skpktterakhir != "") {
-            $validator = $request->validate([
-                'berkas_skpktterakhir' => ['tinyint', 'max:1'],
-            ]);
+        if (boolval($request->berkas_skpktterakhir) != $pegawai->berkas_skpktterakhir) {
             $pegawai->update([
-                'berkas_skpktterakhir' => $request->berkas_skpktterakhir
+                'berkas_skpktterakhir' => boolval($request->berkas_skpktterakhir)
             ]);
         }
 
-        if ($request->berkas_skjabatan != $pegawai->berkas_skjabatan && $request->berkas_skjabatan != "") {
-            $validator = $request->validate([
-                'berkas_skjabatan' => ['tinyint', 'max:1'],
-            ]);
+        if (boolval($request->berkas_skjabatan) != $pegawai->berkas_skjabatan) {
             $pegawai->update([
-                'berkas_skjabatan' => $request->berkas_skjabatan
+                'berkas_skjabatan' => boolval($request->berkas_skjabatan)
             ]);
         }
 
-        if ($request->berkas_kgbterakhir != $pegawai->berkas_kgbterakhir && $request->berkas_kgbterakhir != "") {
-            $validator = $request->validate([
-                'berkas_kgbterakhir' => ['tinyint', 'max:1'],
-            ]);
+        if (boolval($request->berkas_kgbterakhir) != $pegawai->berkas_kgbterakhir) {
             $pegawai->update([
-                'berkas_kgbterakhir' => $request->berkas_kgbterakhir
+                'berkas_kgbterakhir' => boolval($request->berkas_kgbterakhir)
             ]);
         }
 
-        if ($request->berkas_karpeg != $pegawai->berkas_karpeg && $request->berkas_karpeg != "") {
-            $validator = $request->validate([
-                'berkas_karpeg' => ['tinyint', 'max:1'],
-            ]);
+        if (boolval($request->berkas_karpeg) != $pegawai->berkas_karpeg) {
             $pegawai->update([
-                'berkas_karpeg' => $request->berkas_karpeg
+                'berkas_karpeg' => boolval($request->berkas_karpeg)
             ]);
         }
 
-        if ($request->berkas_drp != $pegawai->berkas_drp && $request->berkas_drp != "") {
-            $validator = $request->validate([
-                'berkas_drp' => ['tinyint', 'max:1'],
-            ]);
+        if (boolval($request->berkas_drp) != $pegawai->berkas_drp) {
             $pegawai->update([
-                'berkas_drp' => $request->berkas_drp
+                'berkas_drp' => boolval($request->berkas_drp)
             ]);
         }
 
-        if ($request->berkas_skhukuman != $pegawai->berkas_skhukuman && $request->berkas_skhukuman != "") {
-            $validator = $request->validate([
-                'berkas_skhukuman' => ['tinyint', 'max:1'],
-            ]);
+        if (boolval($request->berkas_skhukuman) != $pegawai->berkas_skhukuman) {
             $pegawai->update([
-                'berkas_skhukuman' => $request->berkas_skhukuman
+                'berkas_skhukuman' => boolval($request->berkas_skhukuman)
             ]);
         }
 
-        if ($request->berkas_dsk != $pegawai->berkas_dsk && $request->berkas_dsk != "") {
-            $validator = $request->validate([
-                'berkas_dsk' => ['tinyint', 'max:1'],
-            ]);
+        if (boolval($request->berkas_dsk) != $pegawai->berkas_dsk) {
             $pegawai->update([
-                'berkas_dsk' => $request->berkas_dsk
+                'berkas_dsk' => boolval($request->berkas_dsk)
             ]);
         }
 
-        if ($request->berkas_suratnikah != $pegawai->berkas_suratnikah && $request->berkas_suratnikah != "") {
-            $validator = $request->validate([
-                'berkas_suratnikah' => ['tinyint', 'max:1'],
-            ]);
+        if (boolval($request->berkas_suratnikah) != $pegawai->berkas_suratnikah) {
             $pegawai->update([
-                'berkas_suratnikah' => $request->berkas_suratnikah
+                'berkas_suratnikah' => boolval($request->berkas_suratnikah)
             ]);
         }
 
-        if ($request->berkas_akteanak != $pegawai->berkas_akteanak && $request->berkas_akteanak != "") {
-            $validator = $request->validate([
-                'berkas_akteanak' => ['tinyint', 'max:1'],
-            ]);
+        if (boolval($request->berkas_akteanak) != $pegawai->berkas_akteanak) {
             $pegawai->update([
-                'berkas_akteanak' => $request->berkas_akteanak
+                'berkas_akteanak' => boolval($request->berkas_akteanak)
             ]);
         }
 
-        if ($request->berkas_kpt != $pegawai->berkas_kpt && $request->berkas_kpt != "") {
-            $validator = $request->validate([
-                'berkas_kpt' => ['tinyint', 'max:1'],
-            ]);
+        if (boolval($request->berkas_kpt) != $pegawai->berkas_kpt) {
             $pegawai->update([
-                'berkas_kpt' => $request->berkas_kpt
+                'berkas_kpt' => boolval($request->berkas_kpt)
             ]);
         }
 
-        if ($request->berkas_dpcp != $pegawai->berkas_dpcp && $request->berkas_dpcp != "") {
-            $validator = $request->validate([
-                'berkas_dpcp' => ['tinyint', 'max:1'],
-            ]);
+        if (boolval($request->berkas_dpcp) != $pegawai->berkas_dpcp) {
             $pegawai->update([
-                'berkas_dpcp' => $request->berkas_dpcp
+                'berkas_dpcp' => boolval($request->berkas_dpcp)
             ]);
         }
 
-        if ($request->berkas_ppk2thnterakhir != $pegawai->berkas_ppk2thnterakhir && $request->berkas_ppk2thnterakhir != "") {
-            $validator = $request->validate([
-                'berkas_ppk2thnterakhir' => ['tinyint', 'max:1'],
-            ]);
+        if (boolval($request->ppk2thnterakhir) != $pegawai->berkas_ppk2thnterakhir) {
             $pegawai->update([
-                'berkas_ppk2thnterakhir' => $request->ppk2thnterakhir
+                'berkas_ppk2thnterakhir' => boolval($request->ppk2thnterakhir)
             ]);
         }
 
-        if ($request->berkas_pasphoto != $pegawai->berkas_pasphoto && $request->berkas_pasphoto != "") {
-            $validator = $request->validate([
-                'berkas_pasphoto' => ['tinyint', 'max:1'],
-            ]);
+        if (boolval($request->berkas_pasphoto) != $pegawai->berkas_pasphoto) {
             $pegawai->update([
-                'berkas_pasphoto' => $request->berkas_pasphoto
+                'berkas_pasphoto' => boolval($request->berkas_pasphoto)
             ]);
         }
 
         if ($pegawai) {
-            return redirect()->back()->with('success','Data berhasil diubah!');
+            return redirect()->back()->with('success', 'Data berhasil diubah!');
         } else {
             return redirect()->back()->withErrors($request);
         }
