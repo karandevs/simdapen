@@ -14,7 +14,7 @@ class PktGolController extends Controller
      */
     public function index()
     {
-        $data = PktGol::paginate(5);
+        $data = PktGol::paginate(10);
         return view('menu.pktgol', compact('data'));
     }
 

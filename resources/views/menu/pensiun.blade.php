@@ -12,7 +12,7 @@
             {{ $errors->first() }}
         </div>
     @endif
-    <h4 class="p-1 fw-bold">Menunggu waktu</h4>
+    <h4 class="p-1 fw-bold">Pegawai Pensiun 4 Bulan Kedepan</h4>
     <div class="card">
         <table class="table">
             <thead>
@@ -425,7 +425,7 @@
         </table>
     </div>
 
-    <h4 class="p-1 fw-bold">Sudah memasuki waktu</h4>
+    <h4 class="p-1 fw-bold">Pegawai yang sudah pensiun</h4>
     <div class="card">
         <table class="table">
             <thead>
@@ -474,13 +474,12 @@
                                 @endphp
                             </td>
                             <td>
-                                <a href="{{ route('cetakSurat', $value->id) }}" class="btn btn-sm btn-danger">Cetak</a>
                                 <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#listModal{{ $i }}">Berkas</button>
+                                    data-bs-target="#listModalPensiun{{ $i }}">Berkas</button>
                                 <form action="{{ route('pensiun.update', $value->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
-                                    <div class="modal fade" id="listModal{{ $i }}" tabindex="-1"
+                                    <div class="modal fade" id="listModalPensiun{{ $i }}" tabindex="-1"
                                         aria-labelledby="listModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
@@ -504,13 +503,6 @@
                                                                             echo 'Belum';
                                                                         }
                                                                     @endphp</h6>
-                                                                    <input type="checkbox" id="berkas_skcpns"
-                                                                        name="berkas_skcpns"
-                                                                        @php if ($value->berkas_skcpns) {
-                                                                            echo 'checked value=true';
-                                                                        } else {
-                                                                            echo 'value=false';
-                                                                        } @endphp>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -525,13 +517,6 @@
                                                                             echo 'Belum';
                                                                         }
                                                                     @endphp</h6>
-                                                                    <input type="checkbox" id="berkas_skpns"
-                                                                        name="berkas_skpns"
-                                                                        @php if ($value->berkas_skpns) {
-                                                                            echo 'checked value=true';
-                                                                        } else {
-                                                                            echo 'value=false';
-                                                                        } @endphp>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -547,13 +532,6 @@
                                                                             echo 'Belum';
                                                                         }
                                                                     @endphp</h6>
-                                                                    <input type="checkbox" id="berkas_skpktterakhir"
-                                                                        name="berkas_skpktterakhir"
-                                                                        @php if ($value->berkas_skpktterakhir) {
-                                                                            echo 'checked value=true';
-                                                                        } else {
-                                                                            echo 'value=false';
-                                                                        } @endphp>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -568,13 +546,6 @@
                                                                             echo 'Belum';
                                                                         }
                                                                     @endphp</h6>
-                                                                    <input type="checkbox" id="berkas_skjabatan"
-                                                                        name="berkas_skjabatan"
-                                                                        @php if ($value->berkas_skjabatan) {
-                                                                            echo 'checked value=true';
-                                                                        } else {
-                                                                            echo 'value=false';
-                                                                        } @endphp>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -590,13 +561,6 @@
                                                                             echo 'Belum';
                                                                         }
                                                                     @endphp</h6>
-                                                                    <input type="checkbox" id="berkas_kgbterakhir"
-                                                                        name="berkas_kgbterakhir"
-                                                                        @php if ($value->berkas_kgbterakhir) {
-                                                                            echo 'checked value=true';
-                                                                        } else {
-                                                                            echo 'value=false';
-                                                                        } @endphp>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -611,13 +575,6 @@
                                                                             echo 'Belum';
                                                                         }
                                                                     @endphp</h6>
-                                                                    <input type="checkbox" id="berkas_karpeg"
-                                                                        name="berkas_karpeg"
-                                                                        @php if ($value->berkas_karpeg) {
-                                                                            echo 'checked value=true';
-                                                                        } else {
-                                                                            echo 'value=false';
-                                                                        } @endphp>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -633,13 +590,6 @@
                                                                             echo 'Belum';
                                                                         }
                                                                     @endphp</h6>
-                                                                    <input type="checkbox" id="berkas_drp"
-                                                                        name="berkas_drp"
-                                                                        @php if ($value->berkas_drp) {
-                                                                            echo 'checked value=true';
-                                                                        } else {
-                                                                            echo 'value=false';
-                                                                        } @endphp>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -656,13 +606,6 @@
                                                                             echo 'Belum';
                                                                         }
                                                                     @endphp</h6>
-                                                                    <input type="checkbox" id="berkas_skhukuman"
-                                                                        name="berkas_skhukuman"
-                                                                        @php if ($value->berkas_skhukuman) {
-                                                                            echo 'checked value=true';
-                                                                        } else {
-                                                                            echo 'value=false';
-                                                                        } @endphp>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -677,13 +620,6 @@
                                                                             echo 'Belum';
                                                                         }
                                                                     @endphp</h6>
-                                                                    <input type="checkbox" id="berkas_dsk"
-                                                                        name="berkas_dsk"
-                                                                        @php if ($value->berkas_dsk) {
-                                                                            echo 'checked value=true';
-                                                                        } else {
-                                                                            echo 'value=false';
-                                                                        } @endphp>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -698,13 +634,6 @@
                                                                             echo 'Belum';
                                                                         }
                                                                     @endphp</h6>
-                                                                    <input type="checkbox" id="berkas_suratnikah"
-                                                                        name="berkas_suratnikah"
-                                                                        @php if ($value->berkas_suratnikah) {
-                                                                            echo 'checked value=true';
-                                                                        } else {
-                                                                            echo 'value=false';
-                                                                        } @endphp>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -720,13 +649,6 @@
                                                                             echo 'Belum';
                                                                         }
                                                                     @endphp</h6>
-                                                                    <input type="checkbox" id="berkas_akteanak"
-                                                                        name="berkas_akteanak"
-                                                                        @php if ($value->berkas_akteanak) {
-                                                                            echo 'checked value=true';
-                                                                        } else {
-                                                                            echo 'value=false';
-                                                                        } @endphp>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -741,13 +663,6 @@
                                                                             echo 'Belum';
                                                                         }
                                                                     @endphp</h6>
-                                                                    <input type="checkbox" id="berkas_kpt"
-                                                                        name="berkas_kpt"
-                                                                        @php if ($value->berkas_kpt) {
-                                                                            echo 'checked value=true';
-                                                                        } else {
-                                                                            echo 'value=false';
-                                                                        } @endphp>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -763,14 +678,6 @@
                                                                             echo 'Belum';
                                                                         }
                                                                     @endphp</h6>
-                                                                    <input type="checkbox" id="berkas_dpcp"
-                                                                        name="berkas_dpcp"
-                                                                        @php if ($value->berkas_dpcp) {
-                                                                            echo 'checked value=true';
-                                                                        } else {
-                                                                            echo 'value=false';
-                                                                        } @endphp>
-                                                                </div>
                                                             </div>
                                                         </li>
                                                         <li class="list-group-item d-flex">
@@ -785,13 +692,6 @@
                                                                             echo 'Belum';
                                                                         }
                                                                     @endphp</h6>
-                                                                    <input type="checkbox" id="berkas_ppk2thnterakhir"
-                                                                        name="berkas_ppk2thnterakhir"
-                                                                        @php if ($value->berkas_ppk2thnterakhir) {
-                                                                            echo 'checked value=true';
-                                                                        } else {
-                                                                            echo 'value=false';
-                                                                        } @endphp>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -806,13 +706,6 @@
                                                                             echo 'Belum';
                                                                         }
                                                                     @endphp</h6>
-                                                                    <input type="checkbox" id="berkas_pasphoto"
-                                                                        name="berkas_pasphoto"
-                                                                        @php if ($value->berkas_pasphoto) {
-                                                                            echo 'checked value=true';
-                                                                        } else {
-                                                                            echo 'value=false';
-                                                                        } @endphp>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -823,8 +716,6 @@
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
                                                         data-bs-dismiss="modal">Tutup</button>
-                                                    <button type="submit" class="btn btn-primary"
-                                                        data-bs-dismiss="modal">Simpan</button>
                                                 </div>
                                             </div>
                                         </div>

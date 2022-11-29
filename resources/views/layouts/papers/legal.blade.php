@@ -20,7 +20,7 @@
     <!-- Set also "landscape" if you need -->
     <style>
         @page {
-            size: legal
+            size: a4
         }
     </style>
 
@@ -33,7 +33,7 @@
     </script>
 </head>
 
-<body class="legal">
+<body class="a4">
     <!-- Each sheet element should have the class "sheet" -->
     <!-- "padding-**mm" is optional: you can set 10, 15, 20 or 25 -->
     <section class="sheet padding-10mm">
@@ -43,13 +43,13 @@
             <div class="text-start">
                 <p>Nomor &nbsp; &nbsp; &nbsp; : </p>
                 <p>Lampiran &nbsp; &nbsp;: </p>
-                <p>Hal &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: Permohonan Pensiun</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; An. {{ $pegawai->nama }}</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NIP. {{ $pegawai->nip }}</p>
-                <p>Yth. Bapak Kepala Kantor Wilayah</p>
-                <p>Badan Pertanahan Nasional</p>
-                <p>Provinsi Jawa Barat</p>
-                <p>Di Bandung</p>
+                <p>Hal &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: Permohonan Pensiun<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; An. {{ $pegawai->nama }}<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NIP. {{ $pegawai->nip }}</p>
+                <p>Yth. Bapak Kepala Kantor Wilayah<br>
+                Badan Pertanahan Nasional<br>
+                Provinsi Jawa Barat<br>
+                Di Bandung</p>
                 <br>
                 <p>Dengan hormat kami sampaikan permohonan pensiun atas nama {{ $pegawai->nama }}, NIP.
                     {{ $pegawai->nip }}, {{ $pegawai->pktgol->pangkat }} ({{ $pegawai->pktgol->golongan }}),
@@ -63,7 +63,7 @@
                 <p>1. Bahwa Pegawai yang bersangkutan dilahirkan pada tanggal
                     {{ date('d F Y', strtotime($pegawai->tgl_lahir)) }} dan pada tanggal
                     {{ date('d F Y', strtotime($pegawai->tgl_lahir . '+ 58 years')) }} genap berusia 58 tahun, telah
-                    memiliki masa kerja {{ $diff->y . ' tahun ' . $diff->m . ' bulan ' . $diff->d . ' hari' }}.</p>
+                    memiliki masa kerja {{ $diff->y . ' tahun ' . $diff->m . ' bulan ' }}.</p>
                 <p>2. Berdasarkan Undang-undang No. 11 Tahun 1960 tentang Pensiun Pegawai, maka yang bersangkutan
                     Terhitung Mulai Tanggal {{ date('d F Y', strtotime($pegawai->tgl_lahir . '+ 58 years')) }} telah
                     mencapai usia batas pensiun.</p>
@@ -86,7 +86,7 @@
                     m. DPCP (Daftar Pegawai Calon Pensiun);<br>
                     n. Foto Copy/legalisir PPK (Prestasi Penilaian Kinerja) 2 Tahun Terakhir;<br>
                     o. Pas photo terbaru 3x4 sebanyak 7 Lembar warna/hitam putih.
-                </p>
+                </p><br><br><br><br><br><br><br><br><br>
                 <p>Demikian permohonan ini kami sampaikan, untuk dapat diproses lebih lanjut.</p>
                 <div class="text-end">
                     <p>Kepala Kantor Pertanahan<br>Kota Bogor</p>

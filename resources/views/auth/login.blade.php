@@ -41,7 +41,7 @@
                                         <div class="d-flex justify-content-between">
                                             <label class="form-label" for="password">{{ __('Kata sandi') }}</label>
                                             <a href="auth-forgot-password-basic.html">
-                                                <small>Forgot Password?</small>
+                                               <!-- <small>Forgot Password?</small> -->
                                             </a>
                                         </div>
                                         <div class="input-group input-group-merge form-password-toggle">
@@ -61,9 +61,9 @@
                                     </div>
                                     <button class="btn btn-dark w-100" tabindex="4">{{ __('Masuk') }}</button>
                                 </form>
-                                <p class="text-center mt-2"><span>{{ __('Belum punya akun?') }}</span><a
+                                <!-- <p class="text-center mt-2"><span>{{ __('Belum punya akun?') }}</span><a
                                         href="{{ route('register') }}"><span>&nbsp;{{ __('Buat akun') }}</span></a>
-                                </p>
+                                </p> -->
                             </div>
                         </div>
                         <!-- /Login basic -->
